@@ -2,6 +2,7 @@
 namespace HHx;
 use namespace HH\Asio;
 use namespace HH\Lib\{C, Vec};
+use HH\Asio\Scheduler as S;
 
 use function HHx\Util\_elementwise;
 
