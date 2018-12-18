@@ -15,7 +15,7 @@ function flat_map<Tu, Tv>((function(Tu): Supplier<Tv>) $f): Operator<Tu, Tv> {
 			if($halt->get() !== null)
 				return true;
 			
-			await $f($v)($_down);
+			S::launch($f($v)($_down));
 		});
 	};
 }
