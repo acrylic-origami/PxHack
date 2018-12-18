@@ -1,0 +1,143 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a9f500982c34159cdc9682276fb5a097",
+    "packages": [
+        {
+            "name": "hhvm/asio-utilities",
+            "version": "dev-async-poll",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acrylic-origami/asio-utilities.git",
+                "reference": "cba9ebcef0c4b9afcc53bbcc57fcaf0bb74608df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acrylic-origami/asio-utilities/zipball/cba9ebcef0c4b9afcc53bbcc57fcaf0bb74608df",
+                "reference": "cba9ebcef0c4b9afcc53bbcc57fcaf0bb74608df",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HH\\Asio\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utilities to make working with async functions easier",
+            "homepage": "https://github.com/hhvm/asio-utilities",
+            "keywords": [
+                "asio",
+                "async",
+                "facebook",
+                "hack",
+                "hhvm"
+            ],
+            "support": {
+                "source": "https://github.com/acrylic-origami/asio-utilities/tree/async-poll"
+            },
+            "time": "2018-12-18T18:46:54+00:00"
+        },
+        {
+            "name": "hhvm/hhvm-autoload",
+            "version": "v1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/hhvm-autoload.git",
+                "reference": "2e8b1ec08f00101d63f5ec797d9db47faa99a6dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/2e8b1ec08f00101d63f5ec797d9db47faa99a6dc",
+                "reference": "2e8b1ec08f00101d63f5ec797d9db47faa99a6dc",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "hhvm": "^3.28"
+            },
+            "replace": {
+                "facebook/hhvm-autoload": "1.*"
+            },
+            "require-dev": {
+                "facebook/fbexpect": "^2.1",
+                "hhvm/hacktest": "^1.0"
+            },
+            "bin": [
+                "bin/hh-autoload"
+            ],
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Facebook\\AutoloadMap\\ComposerPlugin"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/Writer.php",
+                    "src/"
+                ],
+                "files": [
+                    "src/AutoloadMap.php",
+                    "src/Config.php",
+                    "src/TypeAssert.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2018-12-14T20:41:25+00:00"
+        },
+        {
+            "name": "hhvm/hsl",
+            "version": "v3.29.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/hsl.git",
+                "reference": "46d7de35f1cd61e0baa187a8606406f8e8af091a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/46d7de35f1cd61e0baa187a8606406f8e8af091a",
+                "reference": "46d7de35f1cd61e0baa187a8606406f8e8af091a",
+                "shasum": ""
+            },
+            "require": {
+                "hhvm": "^3.29.0",
+                "hhvm/hhvm-autoload": "^1.4"
+            },
+            "require-dev": {
+                "facebook/fbexpect": "^2.0.0",
+                "hhvm/hacktest": "^1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Hack Standard Library",
+            "time": "2018-10-18T18:21:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "hhvm/asio-utilities": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

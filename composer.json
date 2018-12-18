@@ -1,0 +1,18 @@
+{
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/acrylic-origami/asio-utilities"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"HHx\\": "src"
+		}
+	},
+	"require": {
+		"hhvm/hhvm-autoload": "^1.7",
+		"hhvm/hsl": "~3.29",
+		"hhvm/asio-utilities": "dev-async-poll"
+	}
+}
