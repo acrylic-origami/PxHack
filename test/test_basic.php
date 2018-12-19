@@ -3,8 +3,8 @@ require_once(__DIR__ . '/../vendor/hh_autoload.php');
 use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
 
-use function HPx\{publish};
-use function HPx\Util\{share, P2S};
+use function Px\{publish};
+use function Px\Util\{share, P2S};
 
 <<__Entrypoint>>
 function test_basic(): void {

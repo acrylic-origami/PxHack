@@ -1,3 +1,3 @@
 <?hh // strict
-namespace HPx;
+namespace Px;
 interface SharableIterator<+T> extends AsyncIterator<T> {}

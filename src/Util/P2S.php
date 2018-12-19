@@ -1,6 +1,6 @@
 <?hh // strict
-namespace HPx\Util;
-use HPx\{Supplier, const CANCEL};
+namespace Px\Util;
+use Px\{Supplier, const CANCEL};
 
 function P2S<T>(AsyncIterator<T> $P): Supplier<T> {
 	$S = share($P); // with other sharing ops (like publish) opinionating with `share` here is reasonable (and probably best)

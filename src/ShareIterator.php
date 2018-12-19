@@ -1,5 +1,5 @@
 <?hh // strict
-namespace HPx;
+namespace Px;
 use namespace HH\Asio;
 class ShareIterator<+T> implements SharableIterator<T> {
 	private Pointer<int> $count;

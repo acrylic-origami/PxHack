@@ -1,5 +1,5 @@
 <?hh // strict
-use HPx\{NullablePointer};
+use Px\{NullablePointer};
 use namespace HH\Asio;
 // see https://stackoverflow.com/questions/47946750/
 <<__Entrypoint>>

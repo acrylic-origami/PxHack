@@ -1,6 +1,6 @@
 <?hh // strict
-namespace HPx\Util;
-use HPx\ShareIterator;
+namespace Px\Util;
+use Px\ShareIterator;
 function share<T>(AsyncIterator<T> $P): ShareIterator<T> {
 	return new ShareIterator($P);
 }

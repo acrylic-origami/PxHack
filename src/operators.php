@@ -1,10 +1,10 @@
 <?hh // strict
-namespace HPx;
+namespace Px;
 use namespace HH\Asio;
 use namespace HH\Lib\{C, Vec};
 use HH\Asio\Scheduler as S;
 
-use function HPx\Util\_elementwise;
+use function Px\Util\_elementwise;
 
 function flat_map<Tu, Tv>((function(Tu): Supplier<Tv>) $f): Operator<Tu, Tv> {
 	$halt = new NullablePointer();

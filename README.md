@@ -1,6 +1,6 @@
 # Hack ProactiveX
 
-Streaming framework for async-await languages, sitting in the middle of ReactiveX and InteractiveX. This is the Hack implementation. See `test/` for examples. Namespace is `HPx`.
+Streaming framework for async-await languages, sitting in the middle of ReactiveX and InteractiveX. This is the Hack implementation. See `test/` for examples. Namespace is `Px`.
 
 ## The maximum is in the middle
 

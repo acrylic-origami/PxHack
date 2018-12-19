@@ -1,5 +1,5 @@
 <?hh // strict
-namespace HPx;
+namespace Px;
 
 type NextSignal = mixed; // void | true
 type Consumer<-T> = (function(T): Awaitable<NextSignal>); // async might be work, mixed might be cancellation

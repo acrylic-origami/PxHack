@@ -1,12 +1,12 @@
 <?hh // strict
 require_once(__DIR__ . '/../vendor/hh_autoload.php');
 
-use HPx\{Pointer};
+use Px\{Pointer};
 use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
-use function HPx\{group_by};
-use function HPx\Util\{share, P2S};
-use function HPx\Source\interval;
+use function Px\{group_by};
+use function Px\Util\{share, P2S};
+use function Px\Source\interval;
 
 // see https://stackoverflow.com/questions/46879555/
 <<__Entrypoint>>
