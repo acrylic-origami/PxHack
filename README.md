@@ -33,4 +33,4 @@ $merged = <T>(Consumer<T> $downstream) ==>
 // e.g. await $merged(fun('print'));
 ```
 
-See the [full article describing HHx](//lam.io/blog/HHx).
+See the [full article describing Px](//lam.io/blog/HPx).
