@@ -43,10 +43,10 @@ function first<T>(): Operator<T, T> {
 }
 
 function group_by<Tk as arraykey, T>((function(T): Tk) $keyfn): Operator<T, Supplier<T>> {
-	$D = dict[]; // Dict<Tk, Consumer<T>>
+	$D = Map{}; // Map<Tk, Consumer<T>>
 	return _elementwise<T, Supplier<T>>(async ($v, $down) ==> {
 		$k = $keyfn($v);
-		$has_channel = C\contains_key($D, $k);
+		$has_channel = $D->contains($k);
 		if(!$has_channel) {
 			// a unique instance where we need a state machine in case the inner streams are subscribed later or not at all
 			$inner = new NullablePointer(); // Pointer<Consumer<Supplier<T>>>
