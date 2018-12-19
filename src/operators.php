@@ -56,3 +56,51 @@ function group_by<Tk as arraykey, T>((function(T): Tk) $keyfn): Operator<T, Supp
 		return await $D[$k]($v);
 	});
 }
+
+function publish<T>(Supplier<T> $up): Supplier<T> {
+	$downs = Vector{};
+	$cancels = Vector{};
+	$acks = new Pointer(0);
+	$lifetime = $up(async $v ==> {
+		$F_cancels = vec[];
+		for($i = 0; $i < $downs->count(); $i++) {
+			if($cancels[$i]->get() === null) {
+				$F_cancels[] = async {
+					$cancel = await $downs[$i]($v);
+					$cancels[$i]->set($cancel);
+					return $cancel;
+				};
+			}
+		}
+		$new_cancels = await Asio\v($F_cancels);
+		if(!C\any($new_cancels, $v ==> $v === null))
+			return CANCEL;
+	});
+	return $down ==> {
+		$downs->add($down);
+		$cancels->add(new NullablePointer());
+		return $lifetime;
+	};
+}
+
+function fork<T>(Consumer<T> ...$downs): Hole<T> {
+	return $up ==> {
+		$O = publish($up);
+		$lifetime = null;
+		foreach($downs as $down)
+			$lifetime = $O($down);
+		return $lifetime ?? async{};
+	};
+}
+
+function replay<T>(Supplier<T> $up): Supplier<T> {
+	$O = publish($up);
+	$buffer = Vector{};
+	S::launch($O(async $v ==> { $buffer->add($v); }));
+	return async $down ==> {
+		for($i = 0; $i < $buffer->count(); $i++) { // every `foreach` should have an `await`, else it should be `for`
+			await $down($buffer[$i]);
+		}
+		await $O($down); // no race condition should be possible so long as this always gets tacked onto the END of the subscriber list in `publish`
+	};
+}
