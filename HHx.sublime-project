@@ -2,8 +2,14 @@
 	"folders":
 	[
 		{
-			"path": ".",
-			"folder_exclude_patterns": ["vendor"]
+			"folder_exclude_patterns":
+			[
+				"vendor"
+			],
+			"path": "."
+		},
+		{
+			"path": "vendor/hhvm/asio-utilities/src"
 		}
 	]
 }

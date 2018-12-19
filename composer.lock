@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrylic-origami/asio-utilities.git",
-                "reference": "98fdcda7aaedfe0e154df38c138d82ab866d92ee"
+                "reference": "f7b0ff132af3f0c649aef4d776bda13adca65e72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrylic-origami/asio-utilities/zipball/98fdcda7aaedfe0e154df38c138d82ab866d92ee",
-                "reference": "98fdcda7aaedfe0e154df38c138d82ab866d92ee",
+                "url": "https://api.github.com/repos/acrylic-origami/asio-utilities/zipball/f7b0ff132af3f0c649aef4d776bda13adca65e72",
+                "reference": "f7b0ff132af3f0c649aef4d776bda13adca65e72",
                 "shasum": ""
             },
             "type": "library",
@@ -41,7 +41,7 @@
             "support": {
                 "source": "https://github.com/acrylic-origami/asio-utilities/tree/async-poll"
             },
-            "time": "2018-12-18T19:21:18+00:00"
+            "time": "2018-12-18T20:42:36+00:00"
         },
         {
             "name": "hhvm/hhvm-autoload",
