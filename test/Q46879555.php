@@ -1,12 +1,15 @@
 <?hh // strict
 require_once(__DIR__ . '/../vendor/hh_autoload.php');
 
-use HHx\{Pointer};
+use HPx\{Pointer};
 use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
-use function HHx\{group_by};
-use function HHx\Util\{P2S, share};
-use function HHx\Source\interval;
+use function HPx\{group_by};
+use function HPx\Util\{P2S, share};
+use function HPx\Source\interval;
+
+// see https://stackoverflow.com/questions/46879555/
+<<__Entrypoint>>
 function Q46879555(): void {
 	$S = P2S(share(interval(intval(100E3))));
 	

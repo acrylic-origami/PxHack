@@ -1,10 +1,10 @@
 <?hh // strict
-namespace HHx;
+namespace HPx;
 use namespace HH\Asio;
 use namespace HH\Lib\{C, Vec};
 use HH\Asio\Scheduler as S;
 
-use function HHx\Util\_elementwise;
+use function HPx\Util\_elementwise;
 
 function flat_map<Tu, Tv>((function(Tu): Supplier<Tv>) $f): Operator<Tu, Tv> {
 	$halt = new NullablePointer();
@@ -60,7 +60,6 @@ function group_by<Tk as arraykey, T>((function(T): Tk) $keyfn): Operator<T, Supp
 function publish<T>(Supplier<T> $up): Supplier<T> {
 	$downs = Vector{};
 	$cancels = Vector{};
-	$acks = new Pointer(0);
 	$lifetime = $up(async $v ==> {
 		$F_cancels = vec[];
 		for($i = 0; $i < $downs->count(); $i++) {

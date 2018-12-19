@@ -2,11 +2,11 @@
 use namespace HH\Asio;
 use namespace HH\Lib\{C, Vec};
 use HH\Asio\Scheduler as S;
-use function HHx\{debounce, flat_map, publish};
-use function HHx\Util\{P2S, share};
+use function HPx\{debounce, flat_map, publish};
+use function HPx\Util\{P2S, share};
 
-use HHx\{Pointer, NullablePointer, SharableIterator};
-use HHx\{Consumer};
+use HPx\{Pointer, NullablePointer, SharableIterator};
+use HPx\{Consumer};
 
 function test_limit(): void {
 	$start = microtime(true);
@@ -18,7 +18,7 @@ function test_limit(): void {
 			}
 		})
 	) // Vec<Producer>
-		|> Vec\map($$, fun('HHx\Util\P2S')); // Vec<Supplier>
+		|> Vec\map($$, fun('HPx\Util\P2S')); // Vec<Supplier>
 		
 	$all = publish($C ==> Asio\v(Vec\map($sources, $source ==> $source($C)))); // implicit merge
 	$gate = debounce(intval(800E3))($all);

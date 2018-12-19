@@ -2,9 +2,9 @@
 require_once(__DIR__ . '/../vendor/hh_autoload.php');
 use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
-use function HHx\{replay, publish};
-use function HHx\Source\{interval};
-use function HHx\Util\{P2S, share};
+use function HPx\{replay, publish};
+use function HPx\Source\{interval};
+use function HPx\Util\{P2S, share};
 <<__Entrypoint>>
 function test_replay(): void {
 	$source = replay(P2S(share(interval(intval(100E3)))));

@@ -1,6 +1,10 @@
-# HHx - The maximum is in the middle
+# Hack ProactiveX
 
-An experiment to show that ReactiveX and InteractiveX is a spectrum rather than a dichotomy, and to implement operators as encapsulations rather than replacements of user-written code. In particular, this project explores Operators implemented as functions of this type:
+Streaming framework for async-await languages, sitting in the middle of ReactiveX and InteractiveX. This is the Hack implementation. See `test/` for examples. Namespace is `HPx`.
+
+## The maximum is in the middle
+
+In general, ProactiveX (working name) is an experiment to show that ReactiveX and InteractiveX is a spectrum rather than a dichotomy, and to implement operators as encapsulations rather than replacements of user-written code. In particular, this project explores Operators implemented as functions of this type:
 
 ```
 Operator<in Tu, out Tv, T1, ..., Tn> := (T1 x1, ..., Tn xn) -> Supplier<Tu> -> Supplier<Tv>

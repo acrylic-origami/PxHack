@@ -1,5 +1,5 @@
 <?hh // strict
-namespace HHx\Source;
+namespace HPx\Source;
 use namespace HH\Asio;
 
 async function interval(int $delay): AsyncIterator<int> {

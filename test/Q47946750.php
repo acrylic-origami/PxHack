@@ -1,6 +1,7 @@
 <?hh // strict
-use HHx\{NullablePointer};
+use HPx\{NullablePointer};
 use namespace HH\Asio;
+// see https://stackoverflow.com/questions/47946750/
 <<__Entrypoint>>
 function Q47946750(): void {
 	$last = new NullablePointer();

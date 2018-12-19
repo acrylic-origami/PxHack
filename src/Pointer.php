@@ -1,5 +1,5 @@
 <?hh // strict
-namespace HHx;
+namespace HPx;
 class Pointer<T> {
 	public function __construct(private T $v) {}
 	public function set(T $v): void { $this->v = $v; }
