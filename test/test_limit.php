@@ -3,21 +3,19 @@ use namespace HH\Asio;
 use namespace HH\Lib\{C, Vec};
 use HH\Asio\Scheduler as S;
 use function HPx\{debounce, flat_map, publish};
-use function HPx\Util\{P2S, share};
+use function HPx\Util\{share, P2S};
 
 use HPx\{Pointer, NullablePointer, SharableIterator};
 use HPx\{Consumer};
 
 function test_limit(): void {
 	$start = microtime(true);
-	$sources = Vec\map(Vec\range(0, 5), $v ==>
-		share(async {
-			for($i = 0; ; $i++) {
-				await Asio\usleep(intval(mt_rand(500E3, 1E6)));
-				yield tuple($v, $i, microtime(true) - $start);
-			}
-		})
-	) // Vec<Producer>
+	$sources = Vec\map(Vec\range(0, 5), async $v ==> {
+		for($i = 0; ; $i++) {
+			await Asio\usleep(intval(mt_rand(500E3, 1E6)));
+			yield tuple($v, $i, microtime(true) - $start);
+		}
+	}) // Vec<Producer>
 		|> Vec\map($$, fun('HPx\Util\P2S')); // Vec<Supplier>
 		
 	$all = publish($C ==> Asio\v(Vec\map($sources, $source ==> $source($C)))); // implicit merge
@@ -61,7 +59,7 @@ function test_limit(): void {
 		// window($gate)($all)
 		// |> flat_map($S ==> {
 		// 	$P = async { while(true) { await Asio\usleep(intval(100E3)); yield null; } };
-		// 	$inS = P2S($P);
+		// 	$inS = share($P);
 		// 	$i = new Pointer(false);
 		// 	return async $downstream ==> {
 		// 		S::launch(window($inS)(async $_ ==> { $i->set(true); return true; })($S)); // note this launch.

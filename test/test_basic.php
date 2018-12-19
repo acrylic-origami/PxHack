@@ -4,11 +4,11 @@ use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
 
 use function HPx\{publish};
-use function HPx\Util\{P2S, share};
+use function HPx\Util\{share, P2S};
 
 <<__Entrypoint>>
 function test_basic(): void {
-	$S = publish(P2S(share(async {
+	$S = publish(P2S((async {
 		for($i = 0; ; $i++) { await Asio\usleep(intval(100E3)); yield $i; }
 	})));
 	for($i = 0; $i < 3; $i++)

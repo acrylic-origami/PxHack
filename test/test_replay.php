@@ -4,10 +4,10 @@ use namespace HH\Asio;
 use HH\Asio\Scheduler as S;
 use function HPx\{replay, publish};
 use function HPx\Source\{interval};
-use function HPx\Util\{P2S, share};
+use function HPx\Util\{share, P2S};
 <<__Entrypoint>>
 function test_replay(): void {
-	$source = replay(P2S(share(interval(intval(100E3)))));
+	$source = replay(P2S((interval(intval(100E3)))));
 	S::launch($source(async $v ==> { echo "1: $v\n"; }));
 	Asio\join(Asio\v(vec[
 		S::run(),
